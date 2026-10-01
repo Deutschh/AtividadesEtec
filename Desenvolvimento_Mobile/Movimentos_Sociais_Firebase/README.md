@@ -147,7 +147,9 @@ No celular Android, instale o **Expo Go**, mantenha celular e computador na mesm
 
 ## Acervo, fontes e direitos
 
-Os seis registros são dados locais em `src/data/archive.ts`. Eles usam imagens remotas da **Library of Congress** e cada tela de detalhe mostra a fonte e o status de direitos. A coleção não atribui autenticidade a uma imagem fora da sua catalogação original.
+Os seis registros são dados locais em `src/data/archive.ts`. Os metadados e links de referência continuam apontando para registros da **Library of Congress**, mas as imagens exibidas pelo aplicativo são quatro ilustrações temáticas locais armazenadas em `assets/images/`. Isso evita falhas por indisponibilidade de rede ou bloqueio de servidores externos no Expo Go.
+
+As ilustrações representam apoio após lesão, fisioterapia comunitária, recuperação coletiva e documentação/laudos. Elas foram criadas especificamente para esta atividade e são identificadas no aplicativo como ilustrações, não como documentos históricos autênticos. O carregamento usa `require()` estático, compatível com o empacotamento de assets do Expo.
 
 | Categoria | Registro | Fonte | Direitos indicados pela fonte |
 | --- | --- | --- | --- |
@@ -189,6 +191,7 @@ Depois de criadas, elas podem ser referenciadas assim:
 - Login com senha incorreta mostrou a mensagem esperada; login com as credenciais corretas redirecionou para a página inicial.
 - A sessão continuou autenticada após recarregar o aplicativo web. O logout retornou para a tela pública, e o acesso direto a uma rota protegida foi redirecionado para o login.
 - O acervo exibiu seis registros e a tela de detalhes apresentou descrição, contexto, fonte e atribuição. Durante esses fluxos, o console do navegador do aplicativo não apresentou avisos ou erros.
+- As imagens do acervo passaram a ser assets locais com dimensões definidas, `resizeMode="cover"` e fallback visual em caso de erro de carregamento.
 
 A persistência após encerrar completamente o aplicativo em um celular Android com Expo Go ainda deve ser conferida no dispositivo físico, seguindo a seção anterior. A conta de teste e a senha não são registradas neste repositório.
 

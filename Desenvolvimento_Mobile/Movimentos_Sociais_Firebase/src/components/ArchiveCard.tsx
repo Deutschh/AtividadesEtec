@@ -1,5 +1,6 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { ArchiveImage } from '@/components/ArchiveImage';
 import { colors } from '@/constants/archive-theme';
 import { ArchiveItem } from '@/data/archive';
 
@@ -11,7 +12,7 @@ type ArchiveCardProps = {
 export function ArchiveCard({ item, onPress }: ArchiveCardProps) {
   return (
     <Pressable accessibilityRole="button" onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
-      <Image accessibilityLabel={item.title} source={{ uri: item.imageUrl }} style={styles.image} />
+      <ArchiveImage accessibilityLabel={item.imageAlt} height={168} source={item.imageSource} />
       <View style={styles.body}>
         <Text style={styles.period}>{item.period}</Text>
         <Text style={styles.title}>{item.title}</Text>
@@ -30,7 +31,6 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     overflow: 'hidden',
   },
-  image: { backgroundColor: colors.gold, height: 168, width: '100%' },
   body: { padding: 15 },
   period: { color: colors.wine, fontSize: 12, fontWeight: '800', letterSpacing: 0.8, marginBottom: 5, textTransform: 'uppercase' },
   title: { color: colors.ink, fontFamily: 'serif', fontSize: 20, fontWeight: '700', marginBottom: 7 },

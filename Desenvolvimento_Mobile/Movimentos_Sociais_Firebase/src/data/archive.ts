@@ -1,3 +1,5 @@
+import type { ImageSourcePropType } from 'react-native';
+
 export const archiveCategories = [
   'Cartazes históricos',
   'Panfletos',
@@ -13,11 +15,23 @@ export type ArchiveItem = {
   period: string;
   description: string;
   historicalContext: string;
-  imageUrl: string;
+  imageSource: ImageSourcePropType;
+  imageAlt: string;
+  imageNotice: string;
   sourceName: string;
   sourceUrl: string;
   rights: string;
 };
+
+const localImages = {
+  injurySupport: require('../../assets/images/apoio-apos-lesao.png') as ImageSourcePropType,
+  physiotherapyCare: require('../../assets/images/fisioterapia-comunitaria.png') as ImageSourcePropType,
+  collectiveRecovery: require('../../assets/images/recuperacao-coletiva.png') as ImageSourcePropType,
+  reportsAndDocumentation: require('../../assets/images/laudos-e-documentacao.png') as ImageSourcePropType,
+};
+
+const localImageNotice =
+  'Ilustração temática local criada para esta atividade; não é o documento histórico original.';
 
 export const archiveItems: ArchiveItem[] = [
   {
@@ -29,7 +43,9 @@ export const archiveItems: ArchiveItem[] = [
       'Cartaz da coleção Yanker da Library of Congress sobre a história do trabalho das mulheres em Chicago.',
     historicalContext:
       'O registro é catalogado pela Library of Congress com assuntos ligados a sindicatos, participação política e mulheres. Ele integra um acervo de cartazes, não uma reconstrução contemporânea.',
-    imageUrl: 'https://tile.loc.gov/storage-services/service/pnp/ds/13400/13465r.jpg',
+    imageSource: localImages.injurySupport,
+    imageAlt: 'Ilustração de apoio a uma pessoa com o braço enfaixado durante uma mobilização.',
+    imageNotice: localImageNotice,
     sourceName: 'Library of Congress — Yanker Poster Collection',
     sourceUrl: 'https://www.loc.gov/item/2016651746/',
     rights: 'Library of Congress: sem restrições conhecidas de publicação.',
@@ -43,8 +59,9 @@ export const archiveItems: ArchiveItem[] = [
       'Cartaz associado ao Socialist Labor Party, preservado na Yanker Poster Collection.',
     historicalContext:
       'A peça usa a frase “workingmen of all countries, unite!” e é catalogada pela Library of Congress com os temas socialismo e classe trabalhadora.',
-    imageUrl:
-      'https://tile.loc.gov/storage-services/service/pnp/cph/3b30000/3b36000/3b36700/3b36758r.jpg',
+    imageSource: localImages.collectiveRecovery,
+    imageAlt: 'Ilustração de recuperação coletiva em uma oficina comunitária de cartazes.',
+    imageNotice: localImageNotice,
     sourceName: 'Library of Congress — Yanker Poster Collection',
     sourceUrl: 'https://www.loc.gov/item/2016651706/',
     rights: 'Library of Congress: sem restrições conhecidas de publicação.',
@@ -58,7 +75,9 @@ export const archiveItems: ArchiveItem[] = [
       'Programa oficial da procissão pelo sufrágio feminino realizada em Washington, D.C.',
     historicalContext:
       'O documento registra a organização de uma manifestação pública pelo direito de voto das mulheres, realizada na véspera da posse presidencial de 1913.',
-    imageUrl: 'https://tile.loc.gov/storage-services/service/pnp/ppmsca/12500/12512r.jpg',
+    imageSource: localImages.reportsAndDocumentation,
+    imageAlt: 'Ilustração de laudos, fotografias e documentos organizados em uma mesa de arquivo.',
+    imageNotice: localImageNotice,
     sourceName: 'Library of Congress — Prints and Photographs Division',
     sourceUrl: 'https://www.loc.gov/item/94507639/',
     rights: 'Library of Congress: sem restrições conhecidas de publicação.',
@@ -72,7 +91,9 @@ export const archiveItems: ArchiveItem[] = [
       'Folheto de planejamento final para a Marcha sobre Washington por Trabalho e Liberdade.',
     historicalContext:
       'A Library of Congress cataloga o documento como um folheto de 11 páginas publicado em Nova York pelo March on Washington, em 1963.',
-    imageUrl: 'https://tile.loc.gov/storage-services/service/pnp/ppmsca/37400/37470r.jpg',
+    imageSource: localImages.reportsAndDocumentation,
+    imageAlt: 'Ilustração de laudos, fotografias e documentos organizados em uma mesa de arquivo.',
+    imageNotice: localImageNotice,
     sourceName: 'Library of Congress — Civil Rights History Project',
     sourceUrl: 'https://www.loc.gov/item/2014645600/',
     rights: 'Library of Congress: sem restrições conhecidas de publicação.',
@@ -86,8 +107,9 @@ export const archiveItems: ArchiveItem[] = [
       'Fotografia da procissão pelo sufrágio feminino em Washington, D.C.',
     historicalContext:
       'A imagem registra uma mobilização pública pela extensão do direito de voto às mulheres nos Estados Unidos.',
-    imageUrl:
-      'https://tile.loc.gov/storage-services/service/pnp/cph/3a30000/3a34000/3a34500/3a34531r.jpg',
+    imageSource: localImages.physiotherapyCare,
+    imageAlt: 'Ilustração de fisioterapia e cuidado comunitário após uma mobilização.',
+    imageNotice: localImageNotice,
     sourceName: 'Library of Congress — Prints and Photographs Division',
     sourceUrl: 'https://www.loc.gov/item/2013648100/',
     rights: 'Library of Congress: sem restrições conhecidas de publicação.',
@@ -101,7 +123,9 @@ export const archiveItems: ArchiveItem[] = [
       'Fotografia da Marcha sobre Washington por Trabalho e Liberdade, em 1963.',
     historicalContext:
       'A fotografia faz parte de um registro documental da mobilização pelos direitos civis em Washington, D.C.; o título e a data seguem a catalogação da Library of Congress.',
-    imageUrl: 'https://cdn.loc.gov/service/pnp/ds/04400/04411r.jpg',
+    imageSource: localImages.collectiveRecovery,
+    imageAlt: 'Ilustração de recuperação coletiva em uma oficina comunitária de cartazes.',
+    imageNotice: localImageNotice,
     sourceName: 'Library of Congress — Prints and Photographs Division',
     sourceUrl: 'https://www.loc.gov/item/2013648832/',
     rights: 'Library of Congress: sem restrições conhecidas de publicação.',
